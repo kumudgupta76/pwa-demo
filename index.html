@@ -6,9 +6,24 @@
       background-position: center;
     }
   </style>
+
+  <!-- Adding a manifest to html page -->
+  <link rel="manifest" href="manifest.json">
+
   <body>
     <h1>
       This is PWA DEMO
     </h1>
   </body>
+
+  <!-- Registration of Service worker -->
+  <script>
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('sw-demo.js').then(reg => {
+        console.log("sw-demo registered.");
+      }).catch(err =>{
+        console.log("Error");
+      })
+    }
+  </script>
 </html>
