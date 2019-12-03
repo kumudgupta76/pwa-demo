@@ -10,3 +10,18 @@ self.addEventListener("fetch", event =>
         )
     )
 );
+
+self.addEventListener("push", payload => {
+    console.log("[Service Worker] Push Received.", payload.data.json());
+    const notificationTitle = 'Notification !!!'
+    const notificationOptions = {
+      body: 'This is just a test notification sent from local servet',
+      data: 'you can provide additional data here',
+      icon: 'icon.png'
+    };
+  
+    return self.registration.showNotification(
+      notificationTitle,
+      notificationOptions
+    );
+  });
