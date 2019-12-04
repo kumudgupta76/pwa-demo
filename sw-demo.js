@@ -1,6 +1,11 @@
-// self.addEventListener("install", event =>
-//   event.waitUntil(caches.open("v1").then(cache => cache.add("/offline.html")))
-// );
+self.addEventListener('install', (event) => {
+event.waitUntil(
+  caches.open('v1').then((cache) => {
+    return cache.add('/offline.html');
+  })
+);
+  self.skipWaiting();
+});
 
 self.addEventListener("fetch", event => 
     event.respondWith(
